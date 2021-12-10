@@ -12,6 +12,7 @@ runModelsFromJson <- function(outputFolder,
                                  sampleSize,
                                  keepPrediction,
                                  recalibrate,
+                              stratifiedEval,
                                  verbosity){
 
   settingsLocation <- system.file("settings/plpAnalysisList.json",
@@ -121,6 +122,16 @@ runModelsFromJson <- function(outputFolder,
                                                                                            recalibration = recal)
             }
 
+          }
+        }
+
+        if(!is.null(stratifiedEval)) {
+          ParallelLogger::logInfo('Evaluating in subpopulations')
+          stratEvaluation <- stratifiedValidation(prediction = evaluation$prediction,
+                                                  analysisId = analysisId)
+          for (i in 1:length(stratEvaluation)) {
+            evaluation$performanceEvaluation <- addEvaluation(evaluation$performanceEvaluation,
+                                                              subpopEvaluation = stratEvaluation[[i]])
           }
         }
 

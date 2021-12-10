@@ -21,6 +21,7 @@
 #'                             This table will hold the exposure and outcome cohorts used in this
 #'                             study.
 #' @param recalibrate          Whether to recalibrate ('recalibrationintheLarge' and/or 'weakRecalibration')
+#' @param stratifiedEval       Evaluates the model in sub strata of the whole population.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
@@ -41,6 +42,7 @@ execute <- function(connectionDetails,
                     outputFolder,
                     createCohorts = T,
                     recalibrate = NULL,
+                    stratifiedEval = NULL,
                     runValidation = T,
                     packageResults = T,
                     minCellCount = 5,
@@ -88,6 +90,7 @@ execute <- function(connectionDetails,
                         sampleSize = sampleSize,
                         keepPrediction = keepPrediction,
                         recalibrate = recalibrate,
+                        stratifiedEval = stratifiedEval,
                         verbosity = verbosity)
 
     }else{

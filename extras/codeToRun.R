@@ -1,7 +1,7 @@
 library(CovCoagFullValidation)
 
 # the location to save the models validation results to:
-outputFolder <- './Validation'
+outputFolder <- './CovCoagFullValidationResults'
 
 # add the database connection details
 dbms = 'your database management system'
@@ -40,13 +40,16 @@ verbosity <- "INFO"
 createCohorts = T
 
 # apply the models in the package to your data?
-runValidation = F
+runValidation = T
 # if you only want to apply models to a sample of
 # patients put the number as the sampleSize
 sampleSize = NULL
 # do you want to recalibrate results?
 # NULL means none (see ?CovCoagFullValidation::execute for options)
-recalibrate <- NULL
+recalibrate <- c("recalibrationInTheLarge", "weakRecalibration")
+
+# validates models in age and sex strata
+stratifiedEval = T
 
 # extract the results to share as a zip file?
 packageResults = T
@@ -57,17 +60,18 @@ minCellCount = 5
 
 # Now run the study
 CovCoagFullValidation::execute(connectionDetails = connectionDetails,
-                                           databaseName = databaseName,
-                                           cdmVersion = 5,
-                                           cdmDatabaseSchema = cdmDatabaseSchema,
-                                           cohortDatabaseSchema = cohortDatabaseSchema,
-                                           oracleTempSchema = oracleTempSchema,
-                                           cohortTable = cohortTable,
-                                           outputFolder = outputFolder,
-                                           createCohorts = createCohorts,
-                                           recalibrate = recalibrate,
-                                           runValidation = runValidation,
-                                           packageResults = packageResults,
-                                           minCellCount = minCellCount,
-                                           sampleSize = sampleSize,
-                                           verbosity = verbosity)
+                               databaseName = databaseName,
+                               cdmVersion = 5,
+                               cdmDatabaseSchema = cdmDatabaseSchema,
+                               cohortDatabaseSchema = cohortDatabaseSchema,
+                               oracleTempSchema = oracleTempSchema,
+                               cohortTable = cohortTable,
+                               outputFolder = outputFolder,
+                               createCohorts = createCohorts,
+                               recalibrate = recalibrate,
+                               runValidation = runValidation,
+                               packageResults = packageResults,
+                               minCellCount = minCellCount,
+                               sampleSize = sampleSize,
+                               stratifiedEval = stratifiedEval,
+                               verbosity = verbosity)
