@@ -1,0 +1,34 @@
+Package: CovCoagFullValidation
+Type: Package
+Title: Add the title of the package here
+Version: 1.0.4
+Date: 2021-06-07
+Author: your name [aut]
+Maintainer: your name <youremail@address>
+Description: Write your study package description here.
+License: Apache License 2.0
+Depends:
+  R (>= 3.3.0)
+Imports:
+  Andromeda,
+  Cyclops (>= 3.0.0),
+  DatabaseConnector (>= 3.0.0),
+  dplyr,
+  FeatureExtraction (>= 3.0.0),
+  ggplot2,
+  gridExtra,
+  Hydra,
+  magrittr,
+  OhdsiSharing,
+  ParallelLogger (>= 2.0.0),
+  PatientLevelPrediction (>= 4.0.0),
+  reticulate,
+  RJSONIO,
+  rlang,
+  SqlRender,
+  stats,
+  xgboost
+Suggests:
+  testthat
+NeedsCompilation: no
+RoxygenNote: 7.1.1
