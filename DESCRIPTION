@@ -1,8 +1,8 @@
 Package: CovCoagFullValidation
 Type: Package
 Title: Add the title of the package here
-Version: 1.4.0
-Date: 2021-12-10
+Version: 1.5.0
+Date: 2022-01-17
 Author: Henrik John
 Maintainer: Henrik John <l.john@erasmusmc.nl>
 Description: Coagulopathy validation in SARS-Cov-2 using full predictor set fitted on CPRD Aurum.
